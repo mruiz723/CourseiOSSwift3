@@ -1,6 +1,6 @@
 //
-//  GreetingsViewController.swift
-//  PresentANewViewController
+//  PresentViewController.swift
+//  HelloWorld
 //
 //  Created by Marlon David Ruiz Arroyave on 9/22/17.
 //  Copyright © 2017 Eafit. All rights reserved.
@@ -8,20 +8,12 @@
 
 import UIKit
 
-class GreetingsViewController: UIViewController {
+class PresentViewController: UIViewController {
 
-    // MARK: - IBOutlets
-    @IBOutlet weak var welcomeLabel: UILabel!
-    
-    // MARK: - Properties
-    var names: String = ""
-    
     // MARK: - IBActions
-    @IBAction func goBack(_ sender: Any) {
-        //dismiss(animated: true, completion: nil)
-        _ = navigationController?.popViewController(animated: true)
+    @IBAction func dismiss(_ sender: Any) {
+        dismiss(animated: false, completion: nil)
     }
-    
     
     
     // MARK: - LifeCycle
@@ -29,7 +21,6 @@ class GreetingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        welcomeLabel.text = names
     }
 
     override func didReceiveMemoryWarning() {

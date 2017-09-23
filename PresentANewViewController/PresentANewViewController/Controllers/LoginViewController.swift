@@ -1,6 +1,6 @@
 //
-//  GreetingsViewController.swift
-//  PresentANewViewController
+//  LoginViewController.swift
+//  HelloWorld
 //
 //  Created by Marlon David Ruiz Arroyave on 9/22/17.
 //  Copyright © 2017 Eafit. All rights reserved.
@@ -8,20 +8,27 @@
 
 import UIKit
 
-class GreetingsViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var welcomeLabel: UILabel!
-    
+    @IBOutlet weak var userTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+   
     // MARK: - Properties
-    var names: String = ""
+    let username = "mruiz"
+    let password = "mruiz"
+    
     
     // MARK: - IBActions
-    @IBAction func goBack(_ sender: Any) {
-        //dismiss(animated: true, completion: nil)
-        _ = navigationController?.popViewController(animated: true)
+    @IBAction func login(_ sender: Any) {
+        if !(userTextField.text?.isEmpty)! {
+            if !(passwordTextField.text?.isEmpty)! {
+                if userTextField.text == username && passwordTextField.text == password {
+                    performSegue(withIdentifier: "wyn", sender: nil)
+                }
+            }
+        }
     }
-    
     
     
     // MARK: - LifeCycle
@@ -29,7 +36,6 @@ class GreetingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        welcomeLabel.text = names
     }
 
     override func didReceiveMemoryWarning() {
