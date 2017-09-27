@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login-->
+        <!--Login View Controller-->
         <scene sceneID="puI-CC-YUT">
             <objects>
-                <viewController id="kOP-YO-2r1" customClass="LoginViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="kOP-YO-2r1" customClass="LoginViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dsD-tn-WhH"/>
                         <viewControllerLayoutGuide type="bottom" id="I1O-Hu-pTq"/>
@@ -66,17 +66,16 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EFx-3u-Auj" firstAttribute="centerX" secondItem="vgS-uD-cfy" secondAttribute="centerX" id="OW8-5f-bag"/>
                             <constraint firstItem="EFx-3u-Auj" firstAttribute="top" secondItem="dsD-tn-WhH" secondAttribute="bottom" constant="80" id="dB0-wg-Yqf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="KVT-9R-Quz"/>
+                    <navigationItem key="navigationItem" id="KVT-9R-Quz"/>
                     <connections>
                         <outlet property="passwordTextField" destination="vnz-HU-PFe" id="Vap-p8-jBC"/>
                         <outlet property="userTextField" destination="X9K-hN-NEC" id="G8Z-Dj-Ysj"/>
-                        <segue destination="vF4-LR-fnM" kind="show" id="BdM-du-yEh"/>
+                        <segue destination="vF4-LR-fnM" kind="show" identifier="Places" id="BdM-du-yEh"/>
                         <segue destination="kS1-Nb-OUN" kind="show" id="bSH-Jk-uWi"/>
                     </connections>
                 </viewController>
@@ -84,10 +83,61 @@
             </objects>
             <point key="canvasLocation" x="1256.8" y="152.47376311844079"/>
         </scene>
+        <!--Left Menu View Controller-->
+        <scene sceneID="KFR-Wt-SRI">
+            <objects>
+                <viewController storyboardIdentifier="LeftMenu" automaticallyAdjustsScrollViewInsets="NO" id="H7a-LP-n7Z" customClass="LeftMenuViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uix-jy-zqT"/>
+                        <viewControllerLayoutGuide type="bottom" id="aPB-bs-oao"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DUN-iv-emy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuLogo" translatesAutoresizingMaskIntoConstraints="NO" id="9en-vd-Da5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DGn-KT-dwQ">
+                                <rect key="frame" x="0.0" y="167" width="375" height="500"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="menuCell" id="2FJ-Ix-lDD">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2FJ-Ix-lDD" id="YRq-qp-T1W">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="H7a-LP-n7Z" id="C4j-4y-G4v"/>
+                                    <outlet property="delegate" destination="H7a-LP-n7Z" id="VA4-u1-fyt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9en-vd-Da5" firstAttribute="leading" secondItem="DUN-iv-emy" secondAttribute="leading" id="4Zy-Zj-b2K"/>
+                            <constraint firstItem="aPB-bs-oao" firstAttribute="top" secondItem="DGn-KT-dwQ" secondAttribute="bottom" id="Jzt-1t-U0p"/>
+                            <constraint firstItem="DGn-KT-dwQ" firstAttribute="leading" secondItem="DUN-iv-emy" secondAttribute="leading" id="SX6-cm-qRg"/>
+                            <constraint firstAttribute="trailing" secondItem="DGn-KT-dwQ" secondAttribute="trailing" id="csg-MI-gko"/>
+                            <constraint firstItem="9en-vd-Da5" firstAttribute="height" secondItem="DUN-iv-emy" secondAttribute="height" multiplier="0.25" id="nu0-PX-udP"/>
+                            <constraint firstItem="9en-vd-Da5" firstAttribute="top" secondItem="DUN-iv-emy" secondAttribute="top" id="ru2-UJ-ii6"/>
+                            <constraint firstItem="DGn-KT-dwQ" firstAttribute="top" secondItem="9en-vd-Da5" secondAttribute="bottom" id="vGa-ND-0Ni"/>
+                            <constraint firstAttribute="trailing" secondItem="9en-vd-Da5" secondAttribute="trailing" id="xtn-sp-SNJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2jq-Sj-VyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317.60000000000002" y="807.34632683658174"/>
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Ghe-TJ-8QJ">
             <objects>
-                <viewController id="B0m-Dl-jd2" customClass="SignUpViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUp" id="B0m-Dl-jd2" customClass="SignUpViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iTh-wg-c7G"/>
                         <viewControllerLayoutGuide type="bottom" id="KkP-M2-OJW"/>
@@ -100,7 +150,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Sign up" id="G5Y-C3-S7m">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Fer-11-g6x"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Fer-11-g6x">
+                                            <connections>
+                                                <action selector="dismiss:" destination="B0m-Dl-jd2" id="qjH-aZ-t1B"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -144,7 +198,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cgp-CO-7kd" firstAttribute="leading" secondItem="8f4-34-vkI" secondAttribute="leading" id="058-LV-svM"/>
                             <constraint firstItem="32z-kg-m3O" firstAttribute="top" secondItem="cgp-CO-7kd" secondAttribute="bottom" constant="80" id="2Bo-zR-pje"/>
@@ -161,7 +215,7 @@
         <!--Places-->
         <scene sceneID="Sph-Ba-2u4">
             <objects>
-                <tableViewController id="kS1-Nb-OUN" customClass="PlacesTableViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PlacesTableView" id="kS1-Nb-OUN" customClass="PlacesTableViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="zkn-EP-VkA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,7 +225,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G3p-r6-A85" id="qcx-2V-1vr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HnQ-Us-6zd">
@@ -210,7 +264,7 @@
         <!--Places-->
         <scene sceneID="Ory-GP-80L">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vF4-LR-fnM" customClass="PlacesViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Places" automaticallyAdjustsScrollViewInsets="NO" id="vF4-LR-fnM" customClass="PlacesViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0mg-3P-Uhc"/>
                         <viewControllerLayoutGuide type="bottom" id="Fa8-ZA-lCu"/>
@@ -221,13 +275,13 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3hH-Ye-mbV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JfI-vj-F8g">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JfI-vj-F8g" id="7R6-VO-KGN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qtg-kJ-LWI">
@@ -293,7 +347,7 @@
         <!--New Places-->
         <scene sceneID="AcS-LY-6S5">
             <objects>
-                <viewController id="0Pw-Ot-Tk9" customClass="NewPlaceViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewPlace" id="0Pw-Ot-Tk9" customClass="NewPlaceViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lZj-n1-biT"/>
                         <viewControllerLayoutGuide type="bottom" id="Gkg-sA-hK1"/>
@@ -344,7 +398,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8rx-Z3-anx" firstAttribute="centerX" secondItem="rdt-yi-ng9" secondAttribute="centerX" id="OkU-w8-INM"/>
                             <constraint firstItem="Zkq-3m-TfI" firstAttribute="height" secondItem="rdt-yi-ng9" secondAttribute="height" multiplier="0.2" id="VVc-Up-gq4"/>
@@ -362,7 +416,7 @@
         <!--Daughter's Birthday-->
         <scene sceneID="727-N7-Hr6">
             <objects>
-                <viewController id="Oh5-M7-p4w" customClass="PlaceViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Place" id="Oh5-M7-p4w" customClass="PlaceViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tQB-HC-Y9E"/>
                         <viewControllerLayoutGuide type="bottom" id="Rsd-7q-0u3"/>
@@ -400,7 +454,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3oZ-Ic-XCd" firstAttribute="centerX" secondItem="G6W-F7-8zA" secondAttribute="centerX" id="8Py-gX-dXp"/>
                             <constraint firstItem="Juq-3Y-m84" firstAttribute="height" secondItem="G6W-F7-8zA" secondAttribute="height" multiplier="0.2" id="pr0-DD-6JR"/>
@@ -417,10 +471,10 @@
             </objects>
             <point key="canvasLocation" x="2809" y="411"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Custom View Controller-->
         <scene sceneID="lwL-Qg-Vsh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9MU-PP-n4f" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PlacesNav" automaticallyAdjustsScrollViewInsets="NO" id="9MU-PP-n4f" customClass="CustomViewController" customModule="Places" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ukv-VQ-lh9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -436,4 +490,7 @@
             <point key="canvasLocation" x="317.60000000000002" y="152.47376311844079"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menuLogo" width="640" height="426"/>
+    </resources>
 </document>

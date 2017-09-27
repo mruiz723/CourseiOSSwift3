@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewPlaceViewController: UIViewController {
+class NewPlaceViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var userTextField: UITextField!
@@ -24,18 +24,19 @@ class LoginViewController: UIViewController {
         if !(userTextField.text?.isEmpty)! {
             if !(passwordTextField.text?.isEmpty)! {
                 if userTextField.text == username && passwordTextField.text == password {
-                    performSegue(withIdentifier: "wyn", sender: nil)
+                    performSegue(withIdentifier: "Places", sender: nil)
                 }
             }
         }
     }
-    
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = "Login"
+        
     }
 
     override func didReceiveMemoryWarning() {

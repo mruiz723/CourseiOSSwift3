@@ -1,0 +1,25 @@
+PODS:
+  - Alamofire (4.5.1)
+  - AlamofireImage (3.3.0):
+    - Alamofire (~> 4.5)
+  - SlideMenuControllerSwift (3.0.2)
+  - SVProgressHUD (2.2.1)
+  - SwiftyJSON (4.0.0-alpha.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - AlamofireImage (~> 3.3)
+  - SlideMenuControllerSwift (~> 3.0)
+  - SVProgressHUD (~> 2.2)
+  - SwiftyJSON (= 4.0.0-alpha.1)
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  SlideMenuControllerSwift: 16001e1fd9963fd089fa6c91dbe18d4c148f0ce9
+  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+  SwiftyJSON: dc88934f85fb50b263b1632b9cbad3402505783e
+
+PODFILE CHECKSUM: edb019af14d8a003c426edd1d3e3a5bb22847f36
+
+COCOAPODS: 1.2.0

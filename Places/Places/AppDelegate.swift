@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        loadView()
+        setUpNavBarAppearance()
+        
         return true
     }
 
@@ -41,6 +46,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func loadView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "PlacesNav") as! UINavigationController
+        let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftMenu") as! LeftMenuViewController
+        
+        
+        let slideMenuController = SlideMenuController(mainViewController: mainViewController, leftMenuViewController: leftViewController)
+        
+        SlideMenuOptions.contentViewScale = 1
+        SlideMenuOptions.hideStatusBar = false;
+        
+        self.window?.rootViewController = slideMenuController
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func setUpNavBarAppearance() {
+        let image = UIImage(named: "navBarBackground.png")
+        let navBar = UINavigationBar.appearance()
+        navBar.setBackgroundImage(image, for: .default)
+        navBar.tintColor = UIColor.green
+        navBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+    }
+    
 }
 
