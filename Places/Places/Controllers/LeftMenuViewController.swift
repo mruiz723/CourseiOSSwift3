@@ -17,7 +17,6 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     let menuLogin = ["Sign In", "Sign Up"]
     let menuLogout = ["Places", "Favorites", "Sign Out"]
     
-    
     var data = [String]()
     
     // MARK: - LifeCycle
@@ -60,7 +59,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         if data == menuLogin {
             switch indexPath.row {
             case 0:
-                if let mainViewController = storyboard?.instantiateViewController(withIdentifier: "PlacesNav") as? UINavigationController {
+                if let mainViewController = storyboard?.instantiateViewController(withIdentifier: "Login") as? LoginViewController {
                     if let slideMenuController = self.slideMenuController() {
                         slideMenuController.changeMainViewController(mainViewController, close: true)
                     }
@@ -81,7 +80,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
             switch indexPath.row {
             case 0:
                 // Places
-                if let mainViewController = storyboard?.instantiateViewController(withIdentifier: "Places") as? UINavigationController {
+                if let mainViewController = storyboard?.instantiateViewController(withIdentifier: "PlacesNav") as? UINavigationController {
                     if let slideMenuController = self.slideMenuController() {
                         slideMenuController.changeMainViewController(mainViewController, close: true)
                     }
@@ -92,7 +91,7 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 break
             default:
                 // Logout
-                if let mainViewController = storyboard?.instantiateViewController(withIdentifier: "PlacesNav") as? UINavigationController {
+                if let mainViewController = storyboard?.instantiateViewController(withIdentifier: "Login") as? LoginViewController {
                     if let slideMenuController = self.slideMenuController() {
                         data = menuLogin
                         menuTableView.reloadData()

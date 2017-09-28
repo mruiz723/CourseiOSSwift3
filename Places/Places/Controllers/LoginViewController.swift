@@ -28,11 +28,16 @@ class LoginViewController: BaseViewController {
                     SVProgressHUD.dismiss()
                     if success {
                         if let _ = data as? [JSON] {
-                            if let mainVC = self.slideMenuController()?.leftViewController as? LeftMenuViewController {
-                                mainVC.data = mainVC.menuLogout
-                                mainVC.menuTableView.reloadData()
+                            if let slideMenuController = self.slideMenuController() {
+                                if let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "PlacesNav") as? UINavigationController {
+                                    slideMenuController.changeMainViewController(mainVC, close: true)
+                                    if let menuVC = slideMenuController.leftViewController as? LeftMenuViewController {
+                                        menuVC.data = menuVC.menuLogout
+                                        menuVC.menuTableView.reloadData()
+                                    }
+                                }
                             }
-                            self.performSegue(withIdentifier: "Places", sender: nil)
+                            
                         }else {
                             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                             self.makeAlert(title: "Login", message: data.first as! String, actions: [okAction])

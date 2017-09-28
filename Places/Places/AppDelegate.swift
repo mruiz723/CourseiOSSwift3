@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func loadView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "PlacesNav") as! UINavigationController
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
         let leftViewController = storyboard.instantiateViewController(withIdentifier: "LeftMenu") as! LeftMenuViewController
         
         
