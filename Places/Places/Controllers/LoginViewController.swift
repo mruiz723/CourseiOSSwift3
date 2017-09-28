@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+import SVProgressHUD
 
 class LoginViewController: BaseViewController {
 
@@ -15,17 +17,31 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var passwordTextField: UITextField!
    
     // MARK: - Properties
-    let username = "mruiz"
-    let password = "mruiz"
-    
     
     // MARK: - IBActions
     @IBAction func login(_ sender: Any) {
         if !(userTextField.text?.isEmpty)! {
             if !(passwordTextField.text?.isEmpty)! {
-                if userTextField.text == username && passwordTextField.text == password {
-                    performSegue(withIdentifier: "Places", sender: nil)
-                }
+                SVProgressHUD.show()
+                let user = User(username: userTextField.text!, password: passwordTextField.text!)
+                user.signIn(completion: { (success, data) in
+                    SVProgressHUD.dismiss()
+                    if success {
+                        if let _ = data as? [JSON] {
+                            if let mainVC = self.slideMenuController()?.leftViewController as? LeftMenuViewController {
+                                mainVC.data = mainVC.menuLogout
+                                mainVC.menuTableView.reloadData()
+                            }
+                            self.performSegue(withIdentifier: "Places", sender: nil)
+                        }else {
+                            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            self.makeAlert(title: "Login", message: data.first as! String, actions: [okAction])
+                        }
+                        
+                    }else {
+                        
+                    }
+                })
             }
         }
     }

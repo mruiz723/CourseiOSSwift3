@@ -129,6 +129,9 @@
                             <constraint firstAttribute="trailing" secondItem="9en-vd-Da5" secondAttribute="trailing" id="xtn-sp-SNJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="menuTableView" destination="DGn-KT-dwQ" id="Afk-Pd-lB6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jq-Sj-VyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -188,6 +191,9 @@
                                         <state key="normal" title="Done">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="done:" destination="B0m-Dl-jd2" eventType="touchUpInside" id="EEf-yy-ol0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -207,6 +213,11 @@
                             <constraint firstItem="cgp-CO-7kd" firstAttribute="top" secondItem="8f4-34-vkI" secondAttribute="top" id="h3H-O3-GSF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="J7Z-0m-Ofo" id="JOy-1t-UHX"/>
+                        <outlet property="repeatPasswordTextField" destination="BYE-Ik-WMR" id="Zoc-mF-Bfx"/>
+                        <outlet property="usernameTextField" destination="k7y-hv-cs8" id="YZR-2y-yum"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ll-IL-QWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -225,7 +236,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G3p-r6-A85" id="qcx-2V-1vr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HnQ-Us-6zd">
@@ -281,7 +292,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JfI-vj-F8g" id="7R6-VO-KGN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qtg-kJ-LWI">

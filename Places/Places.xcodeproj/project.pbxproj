@@ -12,6 +12,7 @@
 		3C4AD56D1F76C8BD0033A0B0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4AD56C1F76C8BD0033A0B0 /* SignUpViewController.swift */; };
 		3C4AD56F1F76C8F50033A0B0 /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4AD56E1F76C8F50033A0B0 /* NewPlaceViewController.swift */; };
 		3C4AD5711F76C92A0033A0B0 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4AD5701F76C92A0033A0B0 /* PlaceViewController.swift */; };
+		3C547CFC1F7D6CB8005F6BEE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C547CFB1F7D6CB8005F6BEE /* Extensions.swift */; };
 		3C61F3751F769FA7007F0A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C61F3741F769FA7007F0A48 /* AppDelegate.swift */; };
 		3C61F37C1F769FA7007F0A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C61F37B1F769FA7007F0A48 /* Assets.xcassets */; };
 		3C61F38D1F76A763007F0A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C61F3871F76A763007F0A48 /* LaunchScreen.storyboard */; };
@@ -19,6 +20,8 @@
 		3C61F38F1F76A763007F0A48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C61F38A1F76A763007F0A48 /* LoginViewController.swift */; };
 		3C61F3931F76C014007F0A48 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C61F3921F76C014007F0A48 /* MapKit.framework */; };
 		3CF7EDCF1F7B576C00AE604D /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF7EDCE1F7B576C00AE604D /* Services.swift */; };
+		3CF7EDD11F7C402500AE604D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF7EDD01F7C402500AE604D /* User.swift */; };
+		3CF7EDD31F7C754600AE604D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF7EDD21F7C754600AE604D /* Constants.swift */; };
 		3CFB0BF91F7AAB6F00B7A2F4 /* SlideMenuControllerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFB0BF81F7AAB6F00B7A2F4 /* SlideMenuControllerSwift.framework */; };
 		3CFB0BFD1F7AB35200B7A2F4 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB0BFC1F7AB35200B7A2F4 /* LeftMenuViewController.swift */; };
 		3CFB0C161F7ADC0600B7A2F4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB0C141F7ADC0600B7A2F4 /* BaseViewController.swift */; };
@@ -35,6 +38,7 @@
 		3C4AD56C1F76C8BD0033A0B0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3C4AD56E1F76C8F50033A0B0 /* NewPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
 		3C4AD5701F76C92A0033A0B0 /* PlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
+		3C547CFB1F7D6CB8005F6BEE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3C61F3711F769FA7007F0A48 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C61F3741F769FA7007F0A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C61F37B1F769FA7007F0A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		3C61F38A1F76A763007F0A48 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3C61F3921F76C014007F0A48 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3CF7EDCE1F7B576C00AE604D /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		3CF7EDD01F7C402500AE604D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3CF7EDD21F7C754600AE604D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3CFB0BF81F7AAB6F00B7A2F4 /* SlideMenuControllerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SlideMenuControllerSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Places-fqbiqdkrgxfsorhgxvocbempktvm/Build/Products/Debug-iphonesimulator/SlideMenuControllerSwift/SlideMenuControllerSwift.framework"; sourceTree = "<group>"; };
 		3CFB0BFC1F7AB35200B7A2F4 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		3CFB0C141F7ADC0600B7A2F4 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 		3C61F38C1F76A763007F0A48 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3CF7EDD01F7C402500AE604D /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				3CF7EDCE1F7B576C00AE604D /* Services.swift */,
+				3CF7EDD21F7C754600AE604D /* Constants.swift */,
+				3C547CFB1F7D6CB8005F6BEE /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -292,8 +301,11 @@
 				3CF7EDCF1F7B576C00AE604D /* Services.swift in Sources */,
 				3CFB0C161F7ADC0600B7A2F4 /* BaseViewController.swift in Sources */,
 				3C61F3751F769FA7007F0A48 /* AppDelegate.swift in Sources */,
+				3C547CFC1F7D6CB8005F6BEE /* Extensions.swift in Sources */,
 				3CFB0BFD1F7AB35200B7A2F4 /* LeftMenuViewController.swift in Sources */,
 				3C4AD56B1F76C8660033A0B0 /* PlacesTableViewController.swift in Sources */,
+				3CF7EDD11F7C402500AE604D /* User.swift in Sources */,
+				3CF7EDD31F7C754600AE604D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
