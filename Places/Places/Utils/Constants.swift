@@ -26,4 +26,4 @@ let logoutUrl = baseURL + "/user/kid_HJJqtCUi-/_logout"
 let placeUrl = baseURL + "/appdata/kid_HJJqtCUi-/places/"
 
 // MARK: - Typealias
-typealias CompletionHandler = (_ success: Bool, _ response: [Any]) -> ()
+typealias CompletionHandler = (_ success: Bool, _ response: Any) -> ()

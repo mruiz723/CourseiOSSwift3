@@ -27,7 +27,7 @@ class LoginViewController: BaseViewController {
                 user.signIn(completion: { (success, data) in
                     SVProgressHUD.dismiss()
                     if success {
-                        if let _ = data as? [JSON] {
+                        if let _ = data as? JSON {
                             if let slideMenuController = self.slideMenuController() {
                                 if let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "PlacesNav") as? UINavigationController {
                                     slideMenuController.changeMainViewController(mainVC, close: true)
@@ -39,12 +39,13 @@ class LoginViewController: BaseViewController {
                             }
                             
                         }else {
-                            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                            self.makeAlert(title: "Login", message: data.first as! String, actions: [okAction])
+                            self.errorMessage(message: data as! String)
                         }
                         
                     }else {
-                        
+                        if let message = data as? [String: Any] {
+                              self.errorMessage(message: message["error"] as! String)
+                        }
                     }
                 })
             }
@@ -65,6 +66,11 @@ class LoginViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Utils
+    func errorMessage(message: String) {
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        self.makeAlert(title: "Login", message: message, actions: [okAction])
+    }
 
     /*
     // MARK: - Navigation

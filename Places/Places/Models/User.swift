@@ -32,6 +32,7 @@ class User {
         self.init(idUser: "", username: username, password: password)
     }
     
+    // MARK: - Utils
     func signUp( completion: @escaping CompletionHandler) {
         let parameters = toDictionary()
         Service.signUp(parameters: parameters) { (success, data) in
@@ -43,10 +44,10 @@ class User {
         let parameters = toDictionary()
         Service.signIn(parameters: parameters) { (success, data) in
             if success {
-                if let response = data as? [JSON] {
-                    if response[0]["description"].exists() {
-                        if let error = response[0]["description"].rawString() {
-                            completion(success, [error])
+                if let response = data as? JSON {
+                    if response["description"].exists() {
+                        if let error = response["description"].string {
+                            completion(success, error)
                         }
                         
                     }else {

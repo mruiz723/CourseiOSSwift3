@@ -26,6 +26,8 @@
 		3CFB0BFD1F7AB35200B7A2F4 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB0BFC1F7AB35200B7A2F4 /* LeftMenuViewController.swift */; };
 		3CFB0C161F7ADC0600B7A2F4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB0C141F7ADC0600B7A2F4 /* BaseViewController.swift */; };
 		3CFB0C191F7ADDB600B7A2F4 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFB0C181F7ADDB600B7A2F4 /* BaseViewController.xib */; };
+		3CFBD6C91F7E8948009EE5A6 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBD6C81F7E8948009EE5A6 /* PlacesCell.swift */; };
+		3CFBD6CC1F7E9211009EE5A6 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBD6CB1F7E9211009EE5A6 /* Place.swift */; };
 		9780DDA2493FBCA4FAD8F7BE /* Pods_Places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEA88D08BB3EED9892C3879 /* Pods_Places.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		3CFB0BFC1F7AB35200B7A2F4 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		3CFB0C141F7ADC0600B7A2F4 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3CFB0C181F7ADDB600B7A2F4 /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
+		3CFBD6C81F7E8948009EE5A6 /* PlacesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
+		3CFBD6CB1F7E9211009EE5A6 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +119,8 @@
 		3C61F3891F76A763007F0A48 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3CFBD6CA1F7E8962009EE5A6 /* Places */,
 				3C61F38A1F76A763007F0A48 /* LoginViewController.swift */,
-				3C4AD5681F76C7FF0033A0B0 /* PlacesViewController.swift */,
-				3C4AD56A1F76C8660033A0B0 /* PlacesTableViewController.swift */,
 				3C4AD56C1F76C8BD0033A0B0 /* SignUpViewController.swift */,
 				3C4AD56E1F76C8F50033A0B0 /* NewPlaceViewController.swift */,
 				3C4AD5701F76C92A0033A0B0 /* PlaceViewController.swift */,
@@ -131,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				3CF7EDD01F7C402500AE604D /* User.swift */,
+				3CFBD6CB1F7E9211009EE5A6 /* Place.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,6 +157,16 @@
 				3C547CFB1F7D6CB8005F6BEE /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3CFBD6CA1F7E8962009EE5A6 /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				3C4AD56A1F76C8660033A0B0 /* PlacesTableViewController.swift */,
+				3C4AD5681F76C7FF0033A0B0 /* PlacesViewController.swift */,
+				3CFBD6C81F7E8948009EE5A6 /* PlacesCell.swift */,
+			);
+			name = Places;
 			sourceTree = "<group>";
 		};
 		CC66FA2D72742825A47648C3 /* Pods */ = {
@@ -296,11 +310,13 @@
 				3C4AD5711F76C92A0033A0B0 /* PlaceViewController.swift in Sources */,
 				3C4AD56D1F76C8BD0033A0B0 /* SignUpViewController.swift in Sources */,
 				3C4AD5691F76C7FF0033A0B0 /* PlacesViewController.swift in Sources */,
+				3CFBD6C91F7E8948009EE5A6 /* PlacesCell.swift in Sources */,
 				3C61F38F1F76A763007F0A48 /* LoginViewController.swift in Sources */,
 				3C4AD56F1F76C8F50033A0B0 /* NewPlaceViewController.swift in Sources */,
 				3CF7EDCF1F7B576C00AE604D /* Services.swift in Sources */,
 				3CFB0C161F7ADC0600B7A2F4 /* BaseViewController.swift in Sources */,
 				3C61F3751F769FA7007F0A48 /* AppDelegate.swift in Sources */,
+				3CFBD6CC1F7E9211009EE5A6 /* Place.swift in Sources */,
 				3C547CFC1F7D6CB8005F6BEE /* Extensions.swift in Sources */,
 				3CFB0BFD1F7AB35200B7A2F4 /* LeftMenuViewController.swift in Sources */,
 				3C4AD56B1F76C8660033A0B0 /* PlacesTableViewController.swift in Sources */,
