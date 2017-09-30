@@ -8,8 +8,10 @@
 
 import UIKit
 import SVProgressHUD
+import SwiftyJSON
+import SlideMenuControllerSwift
 
-class SignUpViewController: BaseViewController {
+class SignUpViewController: UIViewController {
 
     // MARK: - Properties
     @IBOutlet weak var usernameTextField: UITextField!
@@ -23,17 +25,25 @@ class SignUpViewController: BaseViewController {
     
     
     @IBAction func done(_ sender: Any) {
+        view.endEditing(true)
         if !(usernameTextField.text?.isEmpty)! && !(passwordTextField.text?.isEmpty)! && (repeatPasswordTextField.text! == passwordTextField.text!) {
             SVProgressHUD.show()
             let user = User(username: usernameTextField.text!, password: passwordTextField.text!)
             user.signUp(completion: { (success, users) in
                 SVProgressHUD.dismiss()
                 if success {
-                    if let mainVC = self.slideMenuController()?.leftViewController as? LeftMenuViewController {
-                        mainVC.data = mainVC.menuLogout
-                        mainVC.menuTableView.reloadData()
+                    if let _ = users as? JSON {
+                        if let slideMenuController = UIApplication.shared.keyWindow?.rootViewController as? SlideMenuController {
+                            if let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "PlacesNav") as? UINavigationController {
+                                slideMenuController.changeMainViewController(mainVC, close: true)
+                                if let menuVC = slideMenuController.leftViewController as? LeftMenuViewController {
+                                    menuVC.data = menuVC.menuLogout
+                                    menuVC.menuTableView.reloadData()
+                                }
+                            }
+                        }
                     }
-                    self.performSegue(withIdentifier: "Places", sender: user)
+                    self.dismiss(animated: true, completion: nil)
                 }
             })
         }

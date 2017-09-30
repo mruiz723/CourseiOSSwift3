@@ -22,12 +22,12 @@
 		3CF7EDCF1F7B576C00AE604D /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF7EDCE1F7B576C00AE604D /* Services.swift */; };
 		3CF7EDD11F7C402500AE604D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF7EDD01F7C402500AE604D /* User.swift */; };
 		3CF7EDD31F7C754600AE604D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF7EDD21F7C754600AE604D /* Constants.swift */; };
-		3CFB0BF91F7AAB6F00B7A2F4 /* SlideMenuControllerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFB0BF81F7AAB6F00B7A2F4 /* SlideMenuControllerSwift.framework */; };
 		3CFB0BFD1F7AB35200B7A2F4 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB0BFC1F7AB35200B7A2F4 /* LeftMenuViewController.swift */; };
 		3CFB0C161F7ADC0600B7A2F4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB0C141F7ADC0600B7A2F4 /* BaseViewController.swift */; };
 		3CFB0C191F7ADDB600B7A2F4 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFB0C181F7ADDB600B7A2F4 /* BaseViewController.xib */; };
 		3CFBD6C91F7E8948009EE5A6 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBD6C81F7E8948009EE5A6 /* PlacesCell.swift */; };
 		3CFBD6CC1F7E9211009EE5A6 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBD6CB1F7E9211009EE5A6 /* Place.swift */; };
+		3CFBD6D41F7F5961009EE5A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFBD6D31F7F5961009EE5A6 /* CoreLocation.framework */; };
 		9780DDA2493FBCA4FAD8F7BE /* Pods_Places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEA88D08BB3EED9892C3879 /* Pods_Places.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +58,7 @@
 		3CFB0C181F7ADDB600B7A2F4 /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
 		3CFBD6C81F7E8948009EE5A6 /* PlacesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
 		3CFBD6CB1F7E9211009EE5A6 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		3CFBD6D31F7F5961009EE5A6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFB0BF91F7AAB6F00B7A2F4 /* SlideMenuControllerSwift.framework in Frameworks */,
+				3CFBD6D41F7F5961009EE5A6 /* CoreLocation.framework in Frameworks */,
 				3C61F3931F76C014007F0A48 /* MapKit.framework in Frameworks */,
 				9780DDA2493FBCA4FAD8F7BE /* Pods_Places.framework in Frameworks */,
 			);
@@ -142,6 +143,7 @@
 		3C61F3911F76C014007F0A48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CFBD6D31F7F5961009EE5A6 /* CoreLocation.framework */,
 				3CFB0BF81F7AAB6F00B7A2F4 /* SlideMenuControllerSwift.framework */,
 				3C61F3921F76C014007F0A48 /* MapKit.framework */,
 				0DEA88D08BB3EED9892C3879 /* Pods_Places.framework */,
@@ -213,6 +215,7 @@
 				TargetAttributes = {
 					3C61F3701F769FA7007F0A48 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ALVM8N53R4;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -426,9 +429,10 @@
 			baseConfigurationReference = 14F45C87E0251B6AE8076AD6 /* Pods-Places.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ALVM8N53R4;
 				INFOPLIST_FILE = Places/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.edu.eafit.Places;
+				PRODUCT_BUNDLE_IDENTIFIER = co.edu.eafit.Placest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -439,9 +443,10 @@
 			baseConfigurationReference = 1889109BA84D976A620B96DB /* Pods-Places.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ALVM8N53R4;
 				INFOPLIST_FILE = Places/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.edu.eafit.Places;
+				PRODUCT_BUNDLE_IDENTIFIER = co.edu.eafit.Placest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

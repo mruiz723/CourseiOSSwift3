@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import SVProgressHUD
 
-class LoginViewController: BaseViewController {
+class LoginViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var userTextField: UITextField!

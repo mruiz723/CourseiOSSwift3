@@ -13,7 +13,7 @@ import SwiftyJSON
 struct Service {
     
     static func signUp( parameters:[String: AnyObject], completion: @escaping CompletionHandler) {
-        Alamofire.request(userUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+        Alamofire.request(userUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headersUser).responseJSON { (response) in
             switch response.result {
             case .success(let jsonValue):
                 let response = JSON(jsonValue)
@@ -28,7 +28,7 @@ struct Service {
     }
     
     static func signIn( parameters:[String: AnyObject], completion: @escaping CompletionHandler) {
-        Alamofire.request(loginUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+        Alamofire.request(loginUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headersUser).responseJSON { (response) in
             switch response.result {
             case .success(let jsonValue):
                 let response = JSON(jsonValue)
@@ -40,7 +40,7 @@ struct Service {
     }
     
     static func signOut( parameters:[String: AnyObject], completion: @escaping CompletionHandler) {
-        Alamofire.request(loginUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+        Alamofire.request(loginUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headersUser).responseJSON { (response) in
             switch response.result {
             case .success(let jsonValue):
                 let response = JSON(jsonValue)

@@ -37,6 +37,14 @@ class Place: NSObject {
         self.init(idPlace:"", title: "", placeImage: "", descriptionPlace: "", date: "", coordinate: Coordinate())
     }
     
+    convenience init(title: String, descriptionPlace: String, date: String, coordinate: Coordinate) {
+        self.init(idPlace:"", title: title, placeImage: "", descriptionPlace: "", date: "", coordinate: coordinate)
+    }
+    
+    convenience init(title: String, placeImage: String, descriptionPlace: String, date: String, coordinate: Coordinate) {
+        self.init(idPlace:"", title: title, placeImage: placeImage, descriptionPlace: descriptionPlace, date: date, coordinate: coordinate)
+    }
+    
     // MARK: - Utils
     
     class func places(completion: @escaping CompletionHandler) {
@@ -46,7 +54,7 @@ class Place: NSObject {
                 if let response = data as? JSON {
                     if let dataArray = response.array {
                         for item in dataArray {
-                            let place = Place(idPlace: item["idPlace"].string!, title: item["title"].string!, placeImage: item["placeImage"].string!, descriptionPlace: item["descriptionPlace"].string!, date: item["date"].string!, coordinate: Coordinate(lat: item["lat"].double!, long: item["long"].double!))
+                            let place = Place(idPlace: item["_id"].string!, title: item["title"].string!, placeImage: item["placeImage"].string!, descriptionPlace: item["descriptionPlace"].string!, date: item["date"].string!, coordinate: Coordinate(lat: item["lat"].double!, long: item["long"].double!))
                             places.append(place)
                         }
                     }
@@ -62,8 +70,14 @@ class Place: NSObject {
         Service.createPlace(parameters: toDictionary()) { (success, data) in
             if success {
                 let item = data as! JSON
-                let place = Place(idPlace: item["idPlace"].string!, title: item["title"].string!, placeImage: item["placeImage"].string!, descriptionPlace: item["descriptionPlace"].string!, date: item["date"].string!, coordinate: Coordinate(lat: item["lat"].double!, long: item["long"].double!))
-                completion(success, place)
+                if item["error"].exists() {
+                    completion(success, item["error"].string!)
+                } else {
+                    let place = Place(idPlace: item["_id"].string!, title: item["title"].string!, placeImage: item["placeImage"].string!, descriptionPlace: item["descriptionPlace"].string!, date: item["date"].string!, coordinate: Coordinate(lat: item["lat"].double!, long: item["long"].double!))
+                    completion(success, place)
+                }
+                
+                
             } else {
                 completion(success, data)
             }
@@ -86,13 +100,16 @@ class Place: NSObject {
     
     func toDictionary() -> [String: AnyObject] {
         
+//        "long": self.coordinate?.longuitude as AnyObject,
+//        "lat": self.coordinate?.latitude as AnyObject
+        
         let dict: [String: AnyObject] = [
             "title": self.title! as AnyObject,
             "placeImage": self.placeImage! as AnyObject,
             "descriptionPlace": self.descriptionPlace! as AnyObject,
             "date": self.date! as AnyObject,
-            "longitude": self.coordinate?.longuitude as AnyObject,
-            "latitude": self.coordinate?.latitude as AnyObject,
+            "long": String(format:"%f",(self.coordinate?.longuitude)!) as AnyObject,
+            "lat":  String(format:"%f",(self.coordinate?.latitude)!) as AnyObject
             ]
         
         return dict
