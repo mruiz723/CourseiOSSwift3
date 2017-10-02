@@ -48,6 +48,7 @@ class PlaceViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = place.title
         dateLabel.text = place.date
         if let _ = place.placeImage, let image = UIImage(named: place.placeImage!) {
             placeImageView.image = image

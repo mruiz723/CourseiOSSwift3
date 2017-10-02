@@ -10,6 +10,10 @@ import UIKit
 import CoreLocation
 import MapKit
 
+protocol NewPlaceViewControllerDelegate {
+    func didCreatePlace(place: Place)
+}
+
 class NewPlaceViewController: BaseViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     // MARK: - IBOutlets
@@ -24,6 +28,7 @@ class NewPlaceViewController: BaseViewController, UITextViewDelegate, UIImagePic
     let locationManager = CLLocationManager()
     var lat: Double = 0.00
     var long: Double = 0.00
+    var delegate: NewPlaceViewControllerDelegate?
     
     // MARK: - IBActions
     @IBAction func save(_ sender: Any) {
@@ -41,23 +46,26 @@ class NewPlaceViewController: BaseViewController, UITextViewDelegate, UIImagePic
             return
         }
         
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        
-        let place = Place(title: titleTextField.text!, placeImage: "test", descriptionPlace: descriptionTextView.text, date: formatter.string(from: date), coordinate: Coordinate(lat: lat, long: long))
+        let place = Place(title: titleTextField.text!, placeImage: "menuLogo", descriptionPlace: descriptionTextView.text, date: dateLabel.text!, coordinate: Coordinate(lat: lat, long: long))
         
         place.createPlace { (success, data) in
             if success {
                 let okActionPopVC = UIAlertAction(title: "OK", style: .default, handler: { (action) in
                     _ = self.navigationController?.popViewController(animated: true)
                 })
-                self.makeAlert(title: "New Place", message: "A new Place has been created successfully", actions: [okActionPopVC])
+                if let newPlace = data as? Place {
+                    self.delegate?.didCreatePlace(place: newPlace)
+                    self.makeAlert(title: "New Place", message: "A new Place has been created successfully", actions: [okActionPopVC])
+                } else {
+                    if let message = data as? [String: AnyObject] {
+                        self.makeAlert(title: "New Place", message: message["error"] as! String, actions: [okActionPopVC])
+                    }
+                }
+                
             } else {
                 self.makeAlert(title: "New Place", message: "Something went wrong. Please try again later.", actions: [okAction])
             }
         }
-        
     }
     
     @IBAction func camera(_ sender: Any) {
@@ -76,6 +84,11 @@ class NewPlaceViewController: BaseViewController, UITextViewDelegate, UIImagePic
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        dateLabel.text = formatter.string(from: date)
+        
         descriptionTextView.textColor = UIColor.lightGray
         imagePicker.delegate = self
         

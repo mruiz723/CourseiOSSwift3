@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SVProgressHUD
 
-class PlacesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, PlaceViewControllerDelegate {
+class PlacesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, PlaceViewControllerDelegate, NewPlaceViewControllerDelegate {
 
     // MARK: - IBOutlets
     @IBOutlet weak var placesTableView: UITableView!
@@ -21,7 +22,9 @@ class PlacesViewController: BaseViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        SVProgressHUD.show()
         Place.places { (success, data) in
+            SVProgressHUD.dismiss()
             if success {
                 if let arrayPlaces = data as? [Place] {
                     self.places = arrayPlaces
@@ -69,13 +72,18 @@ class PlacesViewController: BaseViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "place" {
+        if segue.identifier == "place"  {
             if segue.destination is PlaceViewController {
                 let placeVC = segue.destination as! PlaceViewController
                 placeVC.place = sender as! Place
                 placeVC.delegate = self
             }
+        } else  if segue.identifier == "newPlace"{
+            if segue.destination is NewPlaceViewController {
+                let newPlaceVC = segue.destination as! NewPlaceViewController
+                newPlaceVC.delegate = self
+            }
+            
         }
     }
     
@@ -85,5 +93,11 @@ class PlacesViewController: BaseViewController, UITableViewDelegate, UITableView
             places.remove(at: index)
             placesTableView.reloadData()
         }
+    }
+    
+    // MARK: - NewPlaceViewControllerDelegate
+    func didCreatePlace(place: Place) {
+        places.append(place)
+        placesTableView.reloadData()
     }
 }

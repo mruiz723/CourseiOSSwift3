@@ -20,8 +20,6 @@ struct Service {
                 completion(true, response)
             case .failure(let error):
                 completion(false, [["error" : error.localizedDescription as AnyObject]])
-//                    if let resData = swiftyJsonVar["contacts"].arrayObject {
-//                        self.arrRes = resData as! [[String:AnyObject]]
 //                }
             }
         }
@@ -52,7 +50,7 @@ struct Service {
     }
     
     static func createPlace( parameters:[String: AnyObject], completion: @escaping CompletionHandler) {
-        Alamofire.request(placeUrl, method: .post, parameters:parameters, headers: headers).responseJSON { (response) in
+        Alamofire.request(placeUrl, method: .post, parameters:parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             switch response.result {
             case .success(let jsonValue):
                 let response = JSON(jsonValue)

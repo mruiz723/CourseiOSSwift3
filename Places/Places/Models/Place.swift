@@ -71,7 +71,7 @@ class Place: NSObject {
             if success {
                 let item = data as! JSON
                 if item["error"].exists() {
-                    completion(success, item["error"].string!)
+                    completion(success, ["error": item["error"].string!])
                 } else {
                     let place = Place(idPlace: item["_id"].string!, title: item["title"].string!, placeImage: item["placeImage"].string!, descriptionPlace: item["descriptionPlace"].string!, date: item["date"].string!, coordinate: Coordinate(lat: item["lat"].double!, long: item["long"].double!))
                     completion(success, place)
@@ -99,21 +99,16 @@ class Place: NSObject {
     }
     
     func toDictionary() -> [String: AnyObject] {
-        
-//        "long": self.coordinate?.longuitude as AnyObject,
-//        "lat": self.coordinate?.latitude as AnyObject
-        
         let dict: [String: AnyObject] = [
             "title": self.title! as AnyObject,
             "placeImage": self.placeImage! as AnyObject,
             "descriptionPlace": self.descriptionPlace! as AnyObject,
             "date": self.date! as AnyObject,
-            "long": String(format:"%f",(self.coordinate?.longuitude)!) as AnyObject,
-            "lat":  String(format:"%f",(self.coordinate?.latitude)!) as AnyObject
+            "long": self.coordinate?.longuitude as AnyObject,
+            "lat": self.coordinate?.latitude as AnyObject
+
             ]
-        
         return dict
-        
     }
 }
 

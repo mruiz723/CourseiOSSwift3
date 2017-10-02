@@ -39,7 +39,10 @@ class LoginViewController: UIViewController {
                             }
                             
                         }else {
-                            self.errorMessage(message: data as! String)
+                            if let message = data as? [String: AnyObject] {
+                                self.errorMessage(message: message["error"] as! String)
+                            }
+                            
                         }
                         
                     }else {

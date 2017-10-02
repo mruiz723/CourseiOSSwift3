@@ -23,8 +23,6 @@ let headers = [
     "Content-Type": "application/json"
 ]
 
-
-
 let userUrl = baseURL + "/user/kid_HJJqtCUi-/"
 let loginUrl = baseURL + "/user/kid_HJJqtCUi-/login"
 let logoutUrl = baseURL + "/user/kid_HJJqtCUi-/_logout"

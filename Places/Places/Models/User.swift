@@ -47,7 +47,7 @@ class User {
                 if let response = data as? JSON {
                     if response["description"].exists() {
                         if let error = response["description"].string {
-                            completion(success, error)
+                            completion(success, ["error":error])
                         }
                         
                     }else {
