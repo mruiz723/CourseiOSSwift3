@@ -40,7 +40,7 @@ class ViewController: UIViewController {
             present(alertController, animated: true, completion: nil)
         }
         
-        view.endEditing(true)
+        view.endEditing(true) //Hide the keyboard
         
     }
 
